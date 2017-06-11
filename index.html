@@ -33,7 +33,7 @@ button.accordion.active, button.accordion:hover {
 
 div.panel {
     padding: 0 18px;
-   /* display: none;*/
+    display: none;
     background-color: white;
 }
 </style>
@@ -88,6 +88,24 @@ div.panel {
 			ReactDOM.render(course(), document.getElementById('root'))
 		}
 		render();
+
+		var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.add("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+        render();
+    }
+}
+
+
 	</script>
 
 </body>
